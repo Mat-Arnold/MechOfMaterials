@@ -21,7 +21,7 @@ brass.finLength_in = 2.594;
 
 % Test Results
 steel.yieldForce_lbs = 17500;
-steel.yieldElongation_percent = 0.85;
+steel.yieldElongation_percent = 0.5;
 steel.ruptureForce_lbs = 13000;
 steel.ultimateForce_lbs = 18750;
 steel.proportionalLimit_lbs = 15000;
@@ -31,7 +31,7 @@ steel.expectedYoungs_psi = 29e6;
 
 
 alum.yieldForce_lbs = 13500;
-alum.yieldElongation_percent = 0.5;
+alum.yieldElongation_percent = 0.85;
 alum.ruptureForce_lbs = 14000;
 alum.ultimateForce_lbs = 16000;
 alum.proportionalLimit_lbs = 12000;
