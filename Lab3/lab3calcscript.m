@@ -114,46 +114,50 @@ cant.d22Err = abs(cant.theord22_in - cant.d22_in)./cant.theord22_in * 100;
 
 % Simply Supported Plot
 figure('Name','Simply Supported')
-plot(simple.d11_in,simple.L2Loads_lb,'b')
+plot(simple.d11_in,simple.L2Loads_lb,'b','LineWidth',2)
 hold on, grid on;
-plot(simple.theord11_in, simple.L2Loads_lb, 'b--')
+plot(simple.theord11_in, simple.L2Loads_lb, 'b--','LineWidth',2)
 
-plot(simple.d21_in, simple.L2Loads_lb,'g')
-plot(simple.theord21_in, simple.L2Loads_lb,'g--')
+plot(simple.d21_in, simple.L2Loads_lb,'g','LineWidth',2)
+% plot(simple.theord21_in, simple.L2Loads_lb,'g--','LineWidth',2)
 
-plot(simple.d12_in, simple.L4Loads_lb, 'r')
-plot(simple.theord12_in, simple.L4Loads_lb, 'r--')
+plot(simple.d12_in, simple.L4Loads_lb, 'r','LineWidth',2)
+% plot(simple.theord12_in, simple.L4Loads_lb, 'r--','LineWidth',2)
 
-plot(simple.d22_in, simple.L4Loads_lb, 'Color','magenta')
-plot(simple.theord22_in, simple.L4Loads_lb, '--', 'Color','magenta')
+plot(simple.d22_in, simple.L4Loads_lb, 'Color','magenta','LineWidth',2)
+plot(simple.theord22_in, simple.L4Loads_lb, '--', 'Color','magenta','LineWidth',2)
 
 ylim([0 60])
 xlabel("Displacement Distance [in]")
 ylabel("Loading [lbf]")
 title("Displacement vs Loading for a Simply Supported Beam")
-legend({'d11_exp', 'd11_theor', 'd21_exp', 'd21_theor', 'd12_exp', 'd12_theor', 'd22_exp', 'd22_theor'},'Location','Best','Interpreter','none')
+legend({'d11_exp', 'd11_theor', 'd21_exp', 'd12_exp', 'd22_exp', 'd22_theor'},'Location','Best','Interpreter','none')
+ax = gca;
+ax.FontSize = 25;
+
 
 % Cantilever Plot
 figure('Name', 'Cantilever')
-plot(cant.d11_in, cant.LLoads_lb, 'b'); hold on, grid on,
-plot(cant.theord11_in, cant.LLoads_lb, 'b--')
+plot(cant.d11_in, cant.LLoads_lb, 'b','LineWidth',2); hold on, grid on,
+plot(cant.theord11_in, cant.LLoads_lb, 'b--','LineWidth',2)
 
-plot(cant.d21_in, cant.LLoads_lb, 'g')
-plot(cant.theord21_in, cant.LLoads_lb, 'g--')
+plot(cant.d21_in, cant.LLoads_lb, 'g','LineWidth',2)
+% plot(cant.theord21_in, cant.LLoads_lb, 'g--','LineWidth',2)
 
-plot(cant.d12_in, cant.L2Loads_lb, 'r')
-plot(cant.theord12_in, cant.L2Loads_lb, 'r--')
+plot(cant.d12_in, cant.L2Loads_lb, 'r','LineWidth',2)
+% plot(cant.theord12_in, cant.L2Loads_lb, 'r--','LineWidth',2)
 
-plot(cant.d22_in, cant.L2Loads_lb, 'Color','magenta')
-plot(cant.theord22_in, cant.L2Loads_lb, '--', 'Color', 'magenta')
+plot(cant.d22_in, cant.L2Loads_lb, 'Color','magenta','LineWidth',2)
+plot(cant.theord22_in, cant.L2Loads_lb, '--', 'Color', 'magenta','LineWidth',2)
 
 ylim([0 25])
 
 xlabel("Displacement Distance [in]")
 ylabel("Loading [lbf]")
 title("Displacement vs Loading for a Cantilevered Beam")
-legend({'d11_exp', 'd11_theor', 'd21_exp', 'd21_theor', 'd12_exp', 'd12_theor', 'd22_exp', 'd22_theor'},'Location','Best','Interpreter','none')
-
+legend({'d11_exp', 'd11_theor', 'd21_exp', 'd12_exp', 'd22_exp', 'd22_theor'},'Location','Best','Interpreter','none')
+ax = gca;
+ax.FontSize = 25;
 
 
 %% Output Tables
