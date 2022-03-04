@@ -74,6 +74,8 @@ for k = 1:n
     xlabel('Shear Strain')
     ylabel('Shear Stress [psi]')
     title(['Shear Stress vs Shear Strain, Elastic Regime for ', name])
+    ax = gca;
+    ax.FontSize = 20;
 
 end
 
@@ -91,6 +93,17 @@ fprintf('%10.3f \t %10.3f \t %10.3f \t %10.3f \t %10.6f \t %10.3f \t %10.3f \t %
 fprintf('\nShear Modulus Exp (psi):\t %0.3f\n', material.Steel.shearModulus_psi)
 fprintf('Shear Modulus Err (psi):\t %0.3f%%\n\n', material.Steel.shearErr)
 
-
-
+%% plot of gammas
+figure('Name','Gammas');
+scatter(material.Aluminum.gamma, material.Aluminum.tau_psi,80, 'filled');
+hold on, grid on
+scatter(material.Aluminum.stGamma, material.Aluminum.tau_psi,80,'filled')
+scatter(material.Steel.gamma, material.Steel.tau_psi,80, 'filled')
+scatter(material.Steel.stGamma, material.Steel.tau_psi,80, 'filled')
+title('Experimental Strain vs Standard Strain')
+xlabel('Shear Strain')
+ylabel('Shear Stress (psi)')
+legend({'Aluminum Experimental', 'Aluminum Standard','Steel Experimental','Steel Standard'},'Location','best')
+ax = gca;
+ax.FontSize = 20;
 
