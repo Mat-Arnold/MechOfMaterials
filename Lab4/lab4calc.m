@@ -48,6 +48,7 @@ eV_error = abs(Vst-eV)./Vst * 100;
 avgV = (bV+eV)/2;
 dE_exp_psi = -(avgV.*loads_lb*xd_in*c_in)./(dStrain*I_in4);
 dE_error = abs(Est_psi-dE_exp_psi)/Est_psi * 100;
+dE_St = -(Vst*loads_lb*xd_in*c_in)/(Est_psi*I_in4);
 
 %% Make Table
 output = table;
@@ -74,9 +75,12 @@ output.eVst = repmat(Vst,[7,1]);
 output.eV_error = eV_error;
 
 output.dload_lb = loads_lb;
+output.dRaw = dRaw*1e6;
+output.dStrain = dStrain;
 output.dE_exp_psi = dE_exp_psi;
 output.dEst_psi = repmat(Est_psi,[7,1]);
-ouput.dE_error = dE_error;
+output.dE_error = dE_error;
+output.dE_St = dE_St;
 
 writetable(output,'lab4output.xlsx')
 
