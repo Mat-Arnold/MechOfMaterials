@@ -84,8 +84,20 @@ output.dE_St = dE_St;
 
 writetable(output,'lab4output.xlsx')
 
+%% Plot
 
-
+figure('Name','Load vs Strain')
+plot(loads_lb,bStrain,'b','LineWidth', 2)
+hold on, grid on
+plot(loads_lb, bE_St,'b--', 'LineWidth',2)
+plot(loads_lb, eStrain,'r', 'LineWidth',2)
+plot(loads_lb, eE_St,'r--', 'LineWidth',2)
+title('Loads vs Axial Strain')
+xlabel('Load [lb]')
+ylabel('Strain')
+legend({'Strain at B Experimental','Strain at B Theoretical', 'Strain at E Experimental', 'Strain at E Theoretical'},'Location','Best')
+ax = gca;
+ax.FontSize = 25;
 
 
 
